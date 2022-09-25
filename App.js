@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Evento from './componentes/Evento';
+import Inicial from './componentes/Inicial';
+import AdicionarItens from './componentes/AdicionarItens';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -29,6 +30,17 @@ function Home() {
     </View>
   );
 }
+const AppNavigator = createStackNavigator({
+  Inicial,
+  AdicionarItens,
+  ListarItens
+},
+{
+  initialRouteName: 'Inicial'
+}
+);
+
+
 
 const Stack = createStackNavigator();
 
@@ -72,7 +84,7 @@ Article: Article
 export default function App() {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <AppNavigator />
       
     </NavigationContainer>
     
