@@ -5,6 +5,8 @@ import Evento from './componentes/Evento';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 function Feed() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -62,11 +64,15 @@ function MyDrawer() {
     </Drawer.Navigator>
   );
 }
-
+const TabNavigator = createBottomTabNavigator({
+Home: Home,
+Feed: Feed,
+Article: Article
+});
 export default function App() {
   return (
     <NavigationContainer>
-      <MyStack />
+      <TabNavigator />
       
     </NavigationContainer>
     
